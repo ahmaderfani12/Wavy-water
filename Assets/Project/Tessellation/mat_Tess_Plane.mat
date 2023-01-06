@@ -50,8 +50,8 @@ Material:
     - _Foam_Texture_Scale: 7.61
     - _Foam_Texture_Smooth: 0.241
     - _Foam_Texture_Step: 0
-    - _Normal_Map_Scale: 1
-    - _Normal_Map_Speed: 1
+    - _Normal_Map_Scale: 11.1
+    - _Normal_Map_Speed: 0.024
     - _Normal_Map_Strength: 1
     - _Object_Foam_Depth: 0.296
     - _Object_Foam_Fac: 1.28

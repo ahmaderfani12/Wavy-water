@@ -32,12 +32,19 @@ float GetFoam(float foamNoiseScale, float step, float foamStep, float foamStepSm
 
 float3 CalcNormal(float3 normalWS,float3 tangentWS,float3 binormalWS,sampler2D normalMap, float speed, float scale, float strength,float2 uv)
 {
-    //float speed = _Time.y * speed;
-    float4 normal = tex2D(normalMap, uv*10);
-    float3 normal_compressed = UnpackNormal(normal);
-    
+    float offsetSpeed = _Time.y * speed;
     float3x3 TBN_matrix = float3x3(tangentWS, binormalWS, normalWS);
     
-    return normalize(mul(normal_compressed, TBN_matrix));
+    float4 normal1 = tex2D(normalMap, offsetSpeed + uv * scale);
+    float4 normal2 = tex2D(normalMap, -offsetSpeed + uv * scale);
+    
+    float3 normalCompressed1 = UnpackNormal(normal1);
+    float3 normalCompressed2 = UnpackNormal(normal2);
+    
+    float3 normalTangent1 = lerp(normalWS, normalize(mul(normalCompressed1, TBN_matrix)), strength);
+    float3 normalTangent2 = lerp(normalWS, normalize(mul(normalCompressed2, TBN_matrix)), strength);
+    
+    // Blend two normals
+    return normalize(float3(normalTangent1.rg + normalTangent2.rg, normalTangent1.b * normalTangent2.b));
 
 }

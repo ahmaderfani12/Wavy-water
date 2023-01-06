@@ -18,7 +18,7 @@ Shader "TessellatedWater" {
 
         Normal_Categoty("# Normal",float) = 0
         _Normal_Map("Normal Map &",2D)="white"{}
-        _Normal_Map_Scale("Normal Map Scale",Range(0,6)) = 1
+        _Normal_Map_Scale("Normal Map Scale",Range(0,15)) = 1
         _Normal_Map_Speed("Normal Map Speed",Range(0.01,0.2)) = 1.0
         _Normal_Map_Strength("Normal Map Strength", Range(0,1)) = 1
 

@@ -307,7 +307,7 @@ float4 Fragment(Interpolators input) : SV_Target{
         surface.albedo = 0;
         surface.alpha = 1.0;
         surface.metallic = 0;
-        surface.smoothness = 1.0;
+        surface.smoothness = 0.8;
         surface.normalTS = float3(0, 0, 1);
         //surface.normalTS = GetTangentNormal(_Normal_Map, _Normal_Map_Speed, _Normal_Map_Scale, _Normal_Map_Strength, input.uv);
         surface.occlusion = 1;
