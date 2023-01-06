@@ -1,0 +1,141 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-5799241226684962896
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Water Lit
+  m_Shader: {fileID: -6465566751694194690, guid: 2f56e6822b2e54a4392fb9c3dc5840ad,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Foam_Texture:
+        m_Texture: {fileID: 2800000, guid: 27f03b2b1746b114fa8a9da5e4b6af53, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Nomal_Map:
+        m_Texture: {fileID: 2800000, guid: ed9b65023bc6d174db80f643e5525733, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DLOD_484120bfdb674772980720a2b3d53c05_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 0a9a3b96c9d6e63448f9d44a7bc98a54, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2DLOD_7cc0c05f659b4aeeb6c29c0d3d86ed56_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 0a9a3b96c9d6e63448f9d44a7bc98a54, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_5e291b5516204a7ca471e3d32e303ae5_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 2501ee30692870346bd1c49a195cbfbe, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Amp: 0.73
+    - _Collision_Wave_Amp: 0.119
+    - _Collision_Wave_Frec: 4.74
+    - _Collision_Wave_Time_Scale: 1.03
+    - _Depth: 1.22
+    - _ENABLE_COLLIDE_EFFECT: 0
+    - _Float: 92.7
+    - _Float_1: 4
+    - _Foam_Edge_Dif: 0.05
+    - _Foam_Frec: 1.72
+    - _Foam_Noise_Scale: 100
+    - _Foam_Noise_Speed: 0.088
+    - _Foam_Speed: 0.282
+    - _Foam_Step: 5.25
+    - _Foam_Step_Smooth: 0.357
+    - _Foam_Texture_Scale: 6.7
+    - _Foam_Texture_Smooth: 0.241
+    - _Foam_Texture_Step: 0
+    - _Foam_texture_Scale: 6.89
+    - _Metallic: 0
+    - _Normal_Blend: 0.204
+    - _Normal_map_strength: 1.86
+    - _Normal_maps_speed: 0.046
+    - _Normal_maps_tiling: 4.71
+    - _Object_Foam_Depth: 0.65
+    - _Object_Foam_Fac: 2.49
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _Scene_Color_Depth: 0.32
+    - _Screen_Color_Pow: 2.41
+    - _Shadow_Power: 1
+    - _Sharpness: 0.708
+    - _SmoothNess: 0.985
+    - _Smoothness: 1
+    - _Specular_Fade: 0.49
+    - _Specular_Power: 0.8
+    - _Speed: 1
+    - _Sphere_Mask_Hardness: -1.74
+    - _Sphere_Mask_Radius_Offset: 0.33
+    - _Sphere_Second_Mask_Hardness: -6
+    - _Vertex_Mask_Mul: 10
+    - _Vertex_Mask_Power: 1.25
+    - _WaveLength: 6.14
+    - __Basic_Properties: 0
+    - __Collide_effect: 0
+    - __Foam: 0
+    - __Main_Options: 0
+    - __Normal_Map: 0
+    - __Normals: 0
+    - __Object_Foam: 0
+    - __Screen_Color: 0
+    - __Specular: 0
+    - __Vertex_Mask: 0
+    - __Vertex_Waves: 0
+    m_Colors:
+    - _Direction: {r: -0.14, g: -0.16, b: 0, a: 0}
+    - _MainColor: {r: 0.048282307, g: 0.19174814, b: 0.3301887, a: 0}
+    - _Normal_Tiling2_Offset_Strength: {r: 3, g: 3, b: 0.5, a: 4.54}
+    - _Shadow_Color: {r: 0.19607842, g: 0.4951832, b: 0.87058824, a: 0}
+    - _Specular_Color: {r: 102.75575, g: 102.75575, b: 102.75575, a: 0}
+    - _Specular_Step_Edges_edge1_edge2_scale: {r: 0.617, g: 0.67, b: 1, a: 0}
+    - _W1Direction: {r: 1, g: 0, b: 0, a: 0}
+    - _W1_Direction: {r: 0.08, g: -0.98, b: 0, a: 0}
+    - _W1_Prop_Sharpness_WaveLength_Speed: {r: 0.537, g: 1, b: 0.618, a: 0}
+    - _W2_Direction: {r: 0.45, g: 1.95, b: 0, a: 0}
+    - _W2_Prop_Sharpness_WaveLength_Speed: {r: 0.383, g: 0.174, b: 0.417, a: 0}
+    - _W3_Direction: {r: -0.9, g: 0.5, b: 0, a: 0}
+    - _W3_Prop_Sharpness_WaveLength_Speed: {r: 0.404, g: 0.508, b: 0.245, a: 0}
+    - _Wave1Prop_Sharpness_WaveLength_Speed: {r: 0.708, g: 1, b: 0, a: 0}
+    - _Wave1Prop_Sharpness_WaveLength_Speed_1: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []

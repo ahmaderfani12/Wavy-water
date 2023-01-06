@@ -1,0 +1,92 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: waterManager_preset_2
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 610286bffe3f5ac4f8b31a47e6f2b24a,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _waterMat
+    value: 
+    objectReference: {fileID: 2100000, guid: 9ab720ee5d9b1c64f846e8c079c1c25f, type: 2}
+  - target: {fileID: 0}
+    propertyPath: _wave1.sharpness
+    value: 0.444
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave1.waveLenght
+    value: 0.9
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave1.speed
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave1.direction.x
+    value: 0.13
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave1.direction.y
+    value: 1.2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave2.sharpness
+    value: 0.309
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave2.waveLenght
+    value: 0.164
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave2.speed
+    value: 0.68
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave2.direction.x
+    value: -0.34
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave2.direction.y
+    value: 4.52
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave3.sharpness
+    value: 0.715
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave3.waveLenght
+    value: 0.703
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave3.speed
+    value: 0.85
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave3.direction.x
+    value: 6.58
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _wave3.direction.y
+    value: -0.25
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []
