@@ -29,3 +29,15 @@ float GetFoam(float foamNoiseScale, float step, float foamStep, float foamStepSm
     
     return noise * noiseTexture;    
 }
+
+float3 CalcNormal(float3 normalWS,float3 tangentWS,float3 binormalWS,sampler2D normalMap, float speed, float scale, float strength,float2 uv)
+{
+    //float speed = _Time.y * speed;
+    float4 normal = tex2D(normalMap, uv*10);
+    float3 normal_compressed = UnpackNormal(normal);
+    
+    float3x3 TBN_matrix = float3x3(tangentWS, binormalWS, normalWS);
+    
+    return normalize(mul(normal_compressed, TBN_matrix));
+
+}

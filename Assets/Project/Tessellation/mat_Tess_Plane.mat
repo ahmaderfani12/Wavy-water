@@ -30,9 +30,14 @@ Material:
         m_Texture: {fileID: 2800000, guid: 27f03b2b1746b114fa8a9da5e4b6af53, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Normal_Map:
+        m_Texture: {fileID: 2800000, guid: 522abb8f1a7f25647ae0552e60e5c796, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - Foam_Categoty: 0
+    - Normal_Categoty: 0
     - ObjectFoam_Categoty: 0
     - Tessellation: 0
     - Tessellation_Categoty: 0
@@ -45,6 +50,9 @@ Material:
     - _Foam_Texture_Scale: 7.61
     - _Foam_Texture_Smooth: 0.241
     - _Foam_Texture_Step: 0
+    - _Normal_Map_Scale: 1
+    - _Normal_Map_Speed: 1
+    - _Normal_Map_Strength: 1
     - _Object_Foam_Depth: 0.296
     - _Object_Foam_Fac: 1.28
     - _PARTITIONING: 0

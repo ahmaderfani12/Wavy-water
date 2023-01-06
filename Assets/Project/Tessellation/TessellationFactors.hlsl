@@ -30,9 +30,9 @@
 #include "Wave.hlsl"
 #include "WaterSurface.hlsl"
 
-struct Attributes {
+struct Attributes
+{
     float3 positionOS : POSITION;
-    float3 normalOS : NORMAL;
     float2 uv : TEXCOORD0;
     UNITY_VERTEX_INPUT_INSTANCE_ID
 };
@@ -44,7 +44,6 @@ struct TessellationFactors {
 
 struct TessellationControlPoint {
     float3 positionWS : INTERNALTESSPOS;
-    float3 normalWS : NORMAL;
     float4 positionCS : SV_POSITION;
     float2 uv : TEXCOORD0;
     UNITY_VERTEX_INPUT_INSTANCE_ID
@@ -56,6 +55,8 @@ struct Interpolators {
     float3 positionWS               : TEXCOORD2;
     float4 screenPos                : TEXCOORD3;
     float maxWaveHeight             : TEXCOORD4;
+    float3 tangentWS                : TEXCOORD5;
+    float3 binormalWS                : TEXCOORD6;
     float4 positionCS               : SV_POSITION;
     UNITY_VERTEX_INPUT_INSTANCE_ID
     UNITY_VERTEX_OUTPUT_STEREO
@@ -85,6 +86,11 @@ CBUFFER_START(UnityPerMaterial)
     float _Object_Foam_Depth;
     float _Object_Foam_Fac;
     
+    sampler2D _Normal_Map;
+    float _Normal_Map_Scale;
+    float _Normal_Map_Speed;
+    float _Normal_Map_Strength;
+    
 CBUFFER_END
 
 float3 GetViewDirectionFromPosition(float3 positionWS) {
@@ -107,11 +113,9 @@ TessellationControlPoint Vertex(Attributes input) {
     UNITY_TRANSFER_INSTANCE_ID(input, output);
 
     VertexPositionInputs posnInputs = GetVertexPositionInputs(input.positionOS);
-    VertexNormalInputs normalInputs = GetVertexNormalInputs(input.normalOS);
 
     output.positionCS = posnInputs.positionCS;
     output.positionWS = posnInputs.positionWS;
-    output.normalWS = normalInputs.normalWS;
     output.uv = input.uv;
         
     return output;
@@ -262,13 +266,14 @@ Interpolators Domain(
             _W3_Prop_Sharpness_WaveLength_Speed, _W3_Direction,
             _Time.y, wavedPosWS, maxHeight);
     
-        float3 normalWS = BARYCENTRIC_INTERPOLATE(normalWS);
-        float3 calculatedNormal =-1.0 * (cross(normalize((neighbor1New - wavedPosWS)), normalize((neighbor2New - wavedPosWS))));
+        float3 wavedNormal =-1.0 * (cross(normalize((neighbor1New - wavedPosWS)), normalize((neighbor2New - wavedPosWS))));
         
         output.uv = BARYCENTRIC_INTERPOLATE(uv);
         output.maxWaveHeight = maxHeight;
         output.positionCS = TransformWorldToHClip(wavedPosWS);
-        output.normalWS = calculatedNormal;
+        output.normalWS = wavedNormal;
+        output.tangentWS = cross(wavedNormal, float3(1, -0.2, 0)); // TODO: Give a local dir
+        output.binormalWS = cross(wavedNormal, output.tangentWS);
         output.positionWS = wavedPosWS;
         output.screenPos = ComputeScreenPos(output.positionCS);
         //output.positionVS = TransformWorldToView(wavedPosWS);
@@ -283,7 +288,9 @@ float4 Fragment(Interpolators input) : SV_Target{
     // Fill the various lighting and surface data structures for the PBR algorithm
     InputData lightingInput = (InputData)0; // Found in URP/Input.hlsl
     lightingInput.positionWS = input.positionWS;
-    lightingInput.normalWS = input.normalWS;
+        lightingInput.normalWS = CalcNormal(input.normalWS, input.tangentWS, input.binormalWS,
+                                    _Normal_Map, _Normal_Map_Speed, _Normal_Map_Scale, _Normal_Map_Strength,
+                                        input.uv); /*input.normalWS;*/
     lightingInput.viewDirectionWS = GetViewDirectionFromPosition(lightingInput.positionWS);
     lightingInput.shadowCoord = GetShadowCoord(lightingInput.positionWS, input.positionCS);
     lightingInput.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
@@ -297,11 +304,12 @@ float4 Fragment(Interpolators input) : SV_Target{
         
         
         SurfaceData surface = (SurfaceData) 0; // Found in URP/SurfaceData.hlsl
-        surface.albedo = foam;
+        surface.albedo = 0;
         surface.alpha = 1.0;
         surface.metallic = 0;
-        surface.smoothness = 0.5;
+        surface.smoothness = 1.0;
         surface.normalTS = float3(0, 0, 1);
+        //surface.normalTS = GetTangentNormal(_Normal_Map, _Normal_Map_Speed, _Normal_Map_Scale, _Normal_Map_Strength, input.uv);
         surface.occlusion = 1;
 
         
