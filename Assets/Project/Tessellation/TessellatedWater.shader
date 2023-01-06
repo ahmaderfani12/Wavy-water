@@ -38,7 +38,7 @@ Shader "TessellatedWater" {
         _W3_Direction("W2 Direction",vector) = (-0.9,0.5,0.0,0.0)
 
         Foam_Categoty("# Foam",float) = 0
-        _Foam_Noise_Scale("Foam Noise Scale",Range(0,100)) = 100
+        _Foam_Noise_Scale("Foam Noise Scale",Range(0,130)) = 100
         _Foam_Step("Foam Step",Range(0,10)) = 5.25
         _Foam_Step_Smooth("Foam Step Smooth",Range(0,1)) = 0.357
         _Foam_Texture("Foam Texture &",2D) = "white"{}

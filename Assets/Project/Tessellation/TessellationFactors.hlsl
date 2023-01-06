@@ -284,13 +284,14 @@ Interpolators Domain(
 float4 Fragment(Interpolators input) : SV_Target{
     UNITY_SETUP_INSTANCE_ID(input);
     UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
-
+    
+        float3 calculatedNormal = CalcNormal(input.normalWS, input.tangentWS, input.binormalWS,
+                                    _Normal_Map, _Normal_Map_Speed, _Normal_Map_Scale, _Normal_Map_Strength,
+                                        input.uv);
     // Fill the various lighting and surface data structures for the PBR algorithm
     InputData lightingInput = (InputData)0; // Found in URP/Input.hlsl
     lightingInput.positionWS = input.positionWS;
-        lightingInput.normalWS = CalcNormal(input.normalWS, input.tangentWS, input.binormalWS,
-                                    _Normal_Map, _Normal_Map_Speed, _Normal_Map_Scale, _Normal_Map_Strength,
-                                        input.uv); /*input.normalWS;*/
+    lightingInput.normalWS = calculatedNormal;
     lightingInput.viewDirectionWS = GetViewDirectionFromPosition(lightingInput.positionWS);
     lightingInput.shadowCoord = GetShadowCoord(lightingInput.positionWS, input.positionCS);
     lightingInput.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
@@ -300,11 +301,10 @@ float4 Fragment(Interpolators input) : SV_Target{
                             _Foam_Texture_Scale, _Foam_Texture_Step, _Foam_Texture_Smooth,
                             _Object_Foam_Depth, _Object_Foam_Fac, input.uv, GetObjectDepth(input.screenPos));
         
-        //return float4(foam, foam, foam, 1.0);
-        
+        float3 waterColor = (WaterColor(float4(0, 0, 0, 0), depth, 0.5, 1, calculatedNormal, input.screenPos));
         
         SurfaceData surface = (SurfaceData) 0; // Found in URP/SurfaceData.hlsl
-        surface.albedo = 0;
+        surface.albedo = float4(waterColor + float3(foam, foam, foam), 1);
         surface.alpha = 1.0;
         surface.metallic = 0;
         surface.smoothness = 0.8;

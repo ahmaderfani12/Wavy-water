@@ -1,4 +1,5 @@
 #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareDepthTexture.hlsl"
+#include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/DeclareOpaqueTexture.hlsl"
 #include "WaterPublicFuncs.hlsl"
 
 
@@ -46,5 +47,19 @@ float3 CalcNormal(float3 normalWS,float3 tangentWS,float3 binormalWS,sampler2D n
     
     // Blend two normals
     return normalize(float3(normalTangent1.rg + normalTangent2.rg, normalTangent1.b * normalTangent2.b));
+
+}
+
+float3 WaterColor(float4 color, float depth, float transparentDepth, float transparentDepthPow,float3 normal,float4 screenPos)
+{
+    
+    float depthMask = saturate(pow(depth * transparentDepth, transparentDepth));
+    
+    float4 screenPosNoise = float4(lerp(float3(0,0,0),normal,0.3),0) + screenPos;
+    float3 underWaterColor = SampleSceneColor(screenPosNoise.xy / screenPosNoise.w).xyz;
+    
+    //return SampleSceneColor(screenPos.xy/screenPos.w);
+    
+    return lerp(underWaterColor, color.rgb, depthMask);
 
 }

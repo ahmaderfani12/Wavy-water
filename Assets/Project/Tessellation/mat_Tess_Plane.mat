@@ -44,16 +44,16 @@ Material:
     - Vertex_Waves_Categoty: 0
     - _Bias: -2.02
     - _FactorInside: 5.37
-    - _Foam_Noise_Scale: 100
-    - _Foam_Step: 3.14
+    - _Foam_Noise_Scale: 130
+    - _Foam_Step: 3.47
     - _Foam_Step_Smooth: 0.786
-    - _Foam_Texture_Scale: 7.61
+    - _Foam_Texture_Scale: 10
     - _Foam_Texture_Smooth: 0.241
     - _Foam_Texture_Step: 0
-    - _Normal_Map_Scale: 11.1
+    - _Normal_Map_Scale: 12.7
     - _Normal_Map_Speed: 0.024
     - _Normal_Map_Strength: 1
-    - _Object_Foam_Depth: 0.296
+    - _Object_Foam_Depth: 0.39
     - _Object_Foam_Fac: 1.28
     - _PARTITIONING: 0
     - _ScalableTesselation: 1
