@@ -3,12 +3,19 @@
 #include "WaterPublicFuncs.hlsl"
 
 
+float GetObjectDepthNoise(float4 screenPos,float3 normal, float noiseStrength)
+{
+    float4 screenPosNoise = float4(lerp(float3(0, 0, 0), normal, noiseStrength), 0) + screenPos;
+    float rawDepth = SampleSceneDepth(screenPosNoise.xy / screenPosNoise.w);
+    float sceneEyeDepth = LinearEyeDepth(rawDepth, _ZBufferParams);
+    return sceneEyeDepth - screenPosNoise.w;
+}
+
 float GetObjectDepth(float4 screenPos)
 {
     float rawDepth = SampleSceneDepth(screenPos.xy / screenPos.w);
     float sceneEyeDepth = LinearEyeDepth(rawDepth, _ZBufferParams);
     return sceneEyeDepth - screenPos.w;
-
 }
 
 float GetFoam(float foamNoiseScale, float step, float foamStep, float foamStepSmooth,
@@ -18,7 +25,7 @@ float GetFoam(float foamNoiseScale, float step, float foamStep, float foamStepSm
     
     // Noise 1 (Better to use texture here too)
     float desiredDepth = 1.0 -  (1.0 - saturate(depthIn * objectFoamFac1)) * objectFoamFac2;
-    float noise = Unity_GradientNoise(uv, foamNoiseScale);
+    float noise = Unity_GradientNoise(_Time.x/10 + uv, foamNoiseScale);
     
     noise = noise + desiredDepth + step;
     
@@ -50,12 +57,12 @@ float3 CalcNormal(float3 normalWS,float3 tangentWS,float3 binormalWS,sampler2D n
 
 }
 
-float3 WaterColor(float4 color, float depth, float transparentDepth, float transparentDepthPow,float3 normal,float4 screenPos)
+float3 WaterColor(float4 color, float depth, float transparentDepth, float transparentDepthPow, float3 normal, float4 screenPos, float noiseStrength)
 {
     
-    float depthMask = saturate(pow(depth * transparentDepth, transparentDepth));
+    float depthMask = saturate(pow(depth * transparentDepth, transparentDepthPow));
     
-    float4 screenPosNoise = float4(lerp(float3(0,0,0),normal,0.3),0) + screenPos;
+    float4 screenPosNoise = float4(lerp(float3(0, 0, 0), normal, noiseStrength), 0) + screenPos;
     float3 underWaterColor = SampleSceneColor(screenPosNoise.xy / screenPosNoise.w).xyz;
     
     //return SampleSceneColor(screenPos.xy/screenPos.w);

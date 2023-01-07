@@ -42,36 +42,40 @@ Material:
     - ObjectFoam_Categoty: 0
     - Tessellation: 0
     - Tessellation_Categoty: 0
+    - Transparent_Categoty: 0
     - Vertex_Waves_Categoty: 0
-    - _Bias: -2.02
+    - _Bias: 0.08
+    - _Depth_Noise_Strength: 0.0443
     - _FactorInside: 5.37
-    - _Foam_Noise_Scale: 130
-    - _Foam_Step: 3.47
+    - _Foam_Noise_Scale: 135
+    - _Foam_Step: 1.48
     - _Foam_Step_Smooth: 0.786
-    - _Foam_Texture_Scale: 10
-    - _Foam_Texture_Smooth: 0.241
+    - _Foam_Texture_Scale: 14.9
+    - _Foam_Texture_Smooth: 0.19
     - _Foam_Texture_Step: 0
-    - _Normal_Map_Scale: 15
-    - _Normal_Map_Speed: 0.024
-    - _Normal_Map_Strength: 0.74
-    - _Object_Foam_Depth: 1.24
-    - _Object_Foam_Fac: 1.84
+    - _Normal_Map_Scale: 7.25
+    - _Normal_Map_Speed: 0.084
+    - _Normal_Map_Strength: 0.508
+    - _Object_Foam_Depth: 1.96
+    - _Object_Foam_Fac: 2.25
     - _PARTITIONING: 0
     - _ScalableTesselation: 1
-    - _Smoothness: 0.924
-    - _TessellationFactor: 0.0074
-    - _Tolerance: 1.36
+    - _Smoothness: 1
+    - _TessellationFactor: 0.0135
+    - _Tolerance: 1.5
+    - _Transparent_Depth: 0.359
+    - _Transparent_Depth_Pow: 3
     - _Wave1Prop: 0
     - __Vertex_Waves: 0
     - _tolerance: 2
     m_Colors:
     - _FactorEdge1: {r: 3, g: 3, b: 3, a: 0}
-    - _Main_Color: {r: 0, g: 0, b: 0, a: 1}
+    - _Main_Color: {r: 0, g: 0.30749822, b: 0.5, a: 1}
     - _VertexOffsetTest: {r: -0.24, g: 0, b: -5.1, a: 0}
     - _W1_Direction: {r: 0.08, g: -0.98, b: 0, a: 0}
-    - _W1_Prop_Sharpness_WaveLength_Speed: {r: 0.563, g: 1, b: 0.6, a: 0}
-    - _W2_Direction: {r: 0.45, g: -0.98, b: 0, a: 0}
-    - _W2_Prop_Sharpness_WaveLength_Speed: {r: 0.38, g: 0.174, b: 0.417, a: 0}
-    - _W3_Direction: {r: -0.9, g: 0.11, b: 0, a: 0}
-    - _W3_Prop_Sharpness_WaveLength_Speed: {r: 0.477, g: 0.516, b: 0.838, a: 0}
+    - _W1_Prop_Sharpness_WaveLength_Speed: {r: 0.558, g: 1, b: 1, a: 0}
+    - _W2_Direction: {r: 1.52, g: -0.83, b: 0, a: 0}
+    - _W2_Prop_Sharpness_WaveLength_Speed: {r: 0.348, g: 0.39, b: 0.582, a: 0}
+    - _W3_Direction: {r: -1.81, g: -4.1, b: 0, a: 0}
+    - _W3_Prop_Sharpness_WaveLength_Speed: {r: 0.328, g: 0.607, b: 0.757, a: 0}
   m_BuildTextureStacks: []

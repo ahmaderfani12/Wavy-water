@@ -76,6 +76,7 @@ CBUFFER_START(UnityPerMaterial)
     float3 _W3_Prop_Sharpness_WaveLength_Speed;
     float2 _W3_Direction;
     
+    float _Foam_Power;
     float _Foam_Noise_Scale;
     float _Foam_Step;
     float _Foam_Step_Smooth;
@@ -93,6 +94,9 @@ CBUFFER_START(UnityPerMaterial)
     
     float4 _Main_Color;
     float _Smoothness;
+    float _Transparent_Depth;
+    float _Transparent_Depth_Pow;
+    float _Depth_Noise_Strength;
     
 CBUFFER_END
 
@@ -249,13 +253,13 @@ Interpolators Domain(
         float3 positionWS = BARYCENTRIC_INTERPOLATE(positionWS);
         float3 neighbor1New, neighbor2New;
         
-        WavePos_float((positionWS + float3(0.1, 0.0, 0.0)),
+        WavePos_float((positionWS + float3(0.04, 0.0, 0.0)),
             _W1_Prop_Sharpness_WaveLength_Speed, _W1_Direction,
             _W2_Prop_Sharpness_WaveLength_Speed, _W2_Direction,
             _W3_Prop_Sharpness_WaveLength_Speed, _W3_Direction,
             _Time.y, neighbor1New);
         
-        WavePos_float((positionWS + float3(0.0, 0.0, 0.1)),
+        WavePos_float((positionWS + float3(0.0, 0.0, 0.04)),
             _W1_Prop_Sharpness_WaveLength_Speed, _W1_Direction,
             _W2_Prop_Sharpness_WaveLength_Speed, _W2_Direction,
             _W3_Prop_Sharpness_WaveLength_Speed, _W3_Direction,
@@ -268,7 +272,8 @@ Interpolators Domain(
             _W2_Prop_Sharpness_WaveLength_Speed, _W2_Direction,
             _W3_Prop_Sharpness_WaveLength_Speed, _W3_Direction,
             _Time.y, wavedPosWS, maxHeight);
-    
+        
+        
         float3 wavedNormal =-1.0 * (cross(normalize((neighbor1New - wavedPosWS)), normalize((neighbor2New - wavedPosWS))));
         
         output.uv = BARYCENTRIC_INTERPOLATE(uv);
@@ -299,18 +304,20 @@ float4 Fragment(Interpolators input) : SV_Target{
     lightingInput.shadowCoord = GetShadowCoord(lightingInput.positionWS, input.positionCS);
     lightingInput.normalizedScreenSpaceUV = GetNormalizedScreenSpaceUV(input.positionCS);
 
+        float depthNoisy = GetObjectDepthNoise(input.screenPos, calculatedNormal, _Depth_Noise_Strength);
         float depth = GetObjectDepth(input.screenPos);
         float foam = GetFoam(_Foam_Noise_Scale, _Foam_Step, input.maxWaveHeight, _Foam_Step_Smooth, _Foam_Texture,
                             _Foam_Texture_Scale, _Foam_Texture_Step, _Foam_Texture_Smooth,
-                            _Object_Foam_Depth, _Object_Foam_Fac, input.uv, GetObjectDepth(input.screenPos));
+                            _Object_Foam_Depth, _Object_Foam_Fac, input.uv, depth) * _Foam_Power;
         
-        float3 waterColor = (WaterColor(_Main_Color, depth, 0.5, 1, calculatedNormal, input.screenPos));
+        float3 waterColor = (WaterColor(_Main_Color, depthNoisy, _Transparent_Depth, _Transparent_Depth_Pow, calculatedNormal, input.screenPos, _Depth_Noise_Strength));
         
         SurfaceData surface = (SurfaceData) 0; // Found in URP/SurfaceData.hlsl
         surface.albedo = float4(waterColor + float3(foam, foam, foam), 1);
+        //surface.albedo = float4(depth, depth, depth, 1);
         surface.alpha = 1.0;
         surface.metallic = 0;
-        surface.smoothness = _Smoothness;
+        surface.smoothness = _Smoothness * (1 - foam);
         surface.normalTS = float3(0, 0, 1);
         //surface.normalTS = GetTangentNormal(_Normal_Map, _Normal_Map_Speed, _Normal_Map_Scale, _Normal_Map_Strength, input.uv);
         surface.occlusion = 1;

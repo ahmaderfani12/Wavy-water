@@ -5,6 +5,10 @@ Shader "TessellatedWater" {
         BasicProperty_Category("# Basic Property",float) = 0
         _Main_Color("Main Color", Color) = (1,1,1,1)
         _Smoothness("Smoothness", Range(0,1)) = 0.5
+        Transparent_Categoty("## transparency",float) = 0
+        _Transparent_Depth("Transparent Depth",Range(0.01,1)) = 0.5
+        _Transparent_Depth_Pow("Transparent Depth Pow",Range(0,3)) = 1
+        _Depth_Noise_Strength("Depth Noise Strength",Range(0,0.1)) = 0.05
 
         Normal_Categoty("# Normal",float) = 0
         _Normal_Map("Normal Map &",2D)="white"{}
@@ -28,11 +32,12 @@ Shader "TessellatedWater" {
         _W3_Direction("W2 Direction",vector) = (-0.9,0.5,0.0,0.0)
 
         Foam_Categoty("# Foam",float) = 0
-        _Foam_Noise_Scale("Foam Noise Scale",Range(0,130)) = 100
         _Foam_Step("Foam Step",Range(0,10)) = 5.25
+        _Foam_Power("Foam Power", Range(0,1)) = 1
+        _Foam_Noise_Scale("Foam Noise Scale",Range(0,200)) = 100
         _Foam_Step_Smooth("Foam Step Smooth",Range(0,1)) = 0.357
         _Foam_Texture("Foam Texture &",2D) = "white"{}
-        _Foam_Texture_Scale("Foam Texture Scale",Range(0,10)) = 6.7
+        _Foam_Texture_Scale("Foam Texture Scale",Range(0,20)) = 6.7
         _Foam_Texture_Step("Foam Texture Step",Range(0,1)) = 0
         _Foam_Texture_Smooth("Foam Texture Smooth",Range(0,1)) = 0.241
 
