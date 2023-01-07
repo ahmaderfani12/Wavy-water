@@ -6,7 +6,7 @@ half3 GetObjectScale()
     length(unity_ObjectToWorld._m02_m12_m22));
 };
 
-half3 GetObjectScaleAverage()
+half GetObjectScaleAverage()
 {
 
     half3 scale = GetObjectScale();

@@ -60,7 +60,7 @@ float3 CalcNormal(float3 normalWS,float3 tangentWS,float3 binormalWS,sampler2D n
 float3 WaterColor(float4 color, float depth, float transparentDepth, float transparentDepthPow, float3 normal, float4 screenPos, float noiseStrength)
 {
     
-    float depthMask = saturate(pow(depth * transparentDepth, transparentDepthPow));
+    float depthMask = saturate(pow(abs(depth * transparentDepth), transparentDepthPow));
     
     float4 screenPosNoise = float4(lerp(float3(0, 0, 0), normal, noiseStrength), 0) + screenPos;
     float3 underWaterColor = SampleSceneColor(screenPosNoise.xy / screenPosNoise.w).xyz;

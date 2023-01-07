@@ -73,7 +73,7 @@ Shader "TessellatedWater" {
             #pragma domain Domain
             #pragma fragment Fragment
 
-            #include "TessellationFactors.hlsl"
+            #include "WaterFactors.hlsl"
             ENDHLSL
         }
     }
