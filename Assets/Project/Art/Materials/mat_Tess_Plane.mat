@@ -34,6 +34,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 522abb8f1a7f25647ae0552e60e5c796, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Normal_Map_2:
+        m_Texture: {fileID: 2800000, guid: 38565a5cf5847d34084bd4d57ffa34a3, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
     - BasicProperty_Category: 0
@@ -47,15 +51,16 @@ Material:
     - _Bias: 0.08
     - _Depth_Noise_Strength: 0.0443
     - _FactorInside: 5.37
-    - _Foam_Noise_Scale: 135
+    - _Foam_Noise_Scale: 79
+    - _Foam_Power: 0.652
     - _Foam_Step: 1.48
-    - _Foam_Step_Smooth: 0.786
-    - _Foam_Texture_Scale: 14.9
-    - _Foam_Texture_Smooth: 0.19
+    - _Foam_Step_Smooth: 1
+    - _Foam_Texture_Scale: 4.2
+    - _Foam_Texture_Smooth: 0.432
     - _Foam_Texture_Step: 0
-    - _Normal_Map_Scale: 7.25
-    - _Normal_Map_Speed: 0.084
-    - _Normal_Map_Strength: 0.508
+    - _Normal_Map_Scale: 15
+    - _Normal_Map_Speed: 0.041
+    - _Normal_Map_Strength: 0.77
     - _Object_Foam_Depth: 1.96
     - _Object_Foam_Fac: 2.25
     - _PARTITIONING: 0
@@ -70,12 +75,12 @@ Material:
     - _tolerance: 2
     m_Colors:
     - _FactorEdge1: {r: 3, g: 3, b: 3, a: 0}
-    - _Main_Color: {r: 0, g: 0.30749822, b: 0.5, a: 1}
+    - _Main_Color: {r: 0, g: 0.26033336, b: 0.426, a: 1}
     - _VertexOffsetTest: {r: -0.24, g: 0, b: -5.1, a: 0}
     - _W1_Direction: {r: 0.08, g: -0.98, b: 0, a: 0}
     - _W1_Prop_Sharpness_WaveLength_Speed: {r: 0.558, g: 1, b: 1, a: 0}
     - _W2_Direction: {r: 1.52, g: -0.83, b: 0, a: 0}
-    - _W2_Prop_Sharpness_WaveLength_Speed: {r: 0.348, g: 0.39, b: 0.582, a: 0}
+    - _W2_Prop_Sharpness_WaveLength_Speed: {r: 0.348, g: 0.39, b: 0.57, a: 0}
     - _W3_Direction: {r: -1.81, g: -4.1, b: 0, a: 0}
-    - _W3_Prop_Sharpness_WaveLength_Speed: {r: 0.328, g: 0.607, b: 0.757, a: 0}
+    - _W3_Prop_Sharpness_WaveLength_Speed: {r: 0.328, g: 0.583, b: 0.757, a: 0}
   m_BuildTextureStacks: []
