@@ -91,6 +91,9 @@ CBUFFER_START(UnityPerMaterial)
     float _Normal_Map_Speed;
     float _Normal_Map_Strength;
     
+    float4 _Main_Color;
+    float _Smoothness;
+    
 CBUFFER_END
 
 float3 GetViewDirectionFromPosition(float3 positionWS) {
@@ -301,13 +304,13 @@ float4 Fragment(Interpolators input) : SV_Target{
                             _Foam_Texture_Scale, _Foam_Texture_Step, _Foam_Texture_Smooth,
                             _Object_Foam_Depth, _Object_Foam_Fac, input.uv, GetObjectDepth(input.screenPos));
         
-        float3 waterColor = (WaterColor(float4(0, 0, 0, 0), depth, 0.5, 1, calculatedNormal, input.screenPos));
+        float3 waterColor = (WaterColor(_Main_Color, depth, 0.5, 1, calculatedNormal, input.screenPos));
         
         SurfaceData surface = (SurfaceData) 0; // Found in URP/SurfaceData.hlsl
         surface.albedo = float4(waterColor + float3(foam, foam, foam), 1);
         surface.alpha = 1.0;
         surface.metallic = 0;
-        surface.smoothness = 0.8;
+        surface.smoothness = _Smoothness;
         surface.normalTS = float3(0, 0, 1);
         //surface.normalTS = GetTangentNormal(_Normal_Map, _Normal_Map_Speed, _Normal_Map_Scale, _Normal_Map_Strength, input.uv);
         surface.occlusion = 1;

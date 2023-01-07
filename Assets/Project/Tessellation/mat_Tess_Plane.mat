@@ -36,6 +36,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - BasicProperty_Category: 0
     - Foam_Categoty: 0
     - Normal_Categoty: 0
     - ObjectFoam_Categoty: 0
@@ -50,13 +51,14 @@ Material:
     - _Foam_Texture_Scale: 10
     - _Foam_Texture_Smooth: 0.241
     - _Foam_Texture_Step: 0
-    - _Normal_Map_Scale: 12.7
+    - _Normal_Map_Scale: 15
     - _Normal_Map_Speed: 0.024
-    - _Normal_Map_Strength: 1
-    - _Object_Foam_Depth: 0.39
-    - _Object_Foam_Fac: 1.28
+    - _Normal_Map_Strength: 0.74
+    - _Object_Foam_Depth: 1.24
+    - _Object_Foam_Fac: 1.84
     - _PARTITIONING: 0
     - _ScalableTesselation: 1
+    - _Smoothness: 0.924
     - _TessellationFactor: 0.0074
     - _Tolerance: 1.36
     - _Wave1Prop: 0
@@ -64,6 +66,7 @@ Material:
     - _tolerance: 2
     m_Colors:
     - _FactorEdge1: {r: 3, g: 3, b: 3, a: 0}
+    - _Main_Color: {r: 0, g: 0, b: 0, a: 1}
     - _VertexOffsetTest: {r: -0.24, g: 0, b: -5.1, a: 0}
     - _W1_Direction: {r: 0.08, g: -0.98, b: 0, a: 0}
     - _W1_Prop_Sharpness_WaveLength_Speed: {r: 0.563, g: 1, b: 0.6, a: 0}
