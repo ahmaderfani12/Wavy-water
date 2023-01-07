@@ -6,16 +6,13 @@ using UnityEngine;
 
 public class FloatingBall : MonoBehaviour
 {
-    [SerializeField] private float _submergence;
-
-    [SerializeField, Range(0,10)] float _buoyancy = 1f;
+    [SerializeField, Range(0.9f,2)] float _buoyancy = 1f;
 
     [SerializeField] private WaveManager _waveManager;
 
-    [SerializeField] private Material _waterMat;
-
+    private float _submergence;
     private Rigidbody _rb;
-    private float h = 0;
+    private float waveHeight = 0;
 
     private void Awake()
     {
@@ -25,23 +22,13 @@ public class FloatingBall : MonoBehaviour
     {
         float bottomPos = (transform.position.y - transform.localScale.x / 2);
 
-        float surfaceDis = h - bottomPos;
+        float surfaceDis = waveHeight - bottomPos;
 
         _submergence = (transform.localScale.x - surfaceDis) / transform.localScale.x;
 
         _submergence =1 - Mathf.Clamp(_submergence, 0, 1);
 
-        h = _waveManager.GetWaveHeight(Vector3.zero);
-
-        UpdateWaterMat();
-    }
-
-    private void UpdateWaterMat()
-    {
-        _waterMat.SetVector("_Sphere_Position", this.transform.position);
-        _waterMat.SetFloat("_Sphere_Mask_Radius", transform.localScale.x/2);
-       //_waterMat.SetFloat("_Submergence", _submergence);
-        _waterMat.SetFloat("_Sphere_Velocity", _rb.velocity.y);
+        waveHeight = _waveManager.GetWaveHeight(Vector3.zero);
     }
 
     private void FixedUpdate()

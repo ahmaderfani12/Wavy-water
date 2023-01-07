@@ -81,15 +81,15 @@ Material:
     - _Foam_Noise_Scale: 100
     - _Foam_Noise_Speed: 0.088
     - _Foam_Speed: 0.282
-    - _Foam_Step: 10
-    - _Foam_Step_Smooth: 0.357
+    - _Foam_Step: 4.83
+    - _Foam_Step_Smooth: 0.792
     - _Foam_Texture_Scale: 6.7
     - _Foam_Texture_Smooth: 0.241
     - _Foam_Texture_Step: 0
     - _Foam_texture_Scale: 6.89
     - _Metallic: 0
     - _Normal_Blend: 0.204
-    - _Normal_map_strength: 0
+    - _Normal_map_strength: 2
     - _Normal_maps_speed: 0.046
     - _Normal_maps_tiling: 5
     - _Object_Foam_Depth: 0.65
@@ -101,7 +101,7 @@ Material:
     - _Shadow_Power: 1
     - _Sharpness: 0.708
     - _SmoothNess: 0.985
-    - _Smoothness: 0
+    - _Smoothness: 0.969
     - _Specular_Fade: 0.49
     - _Specular_Power: 0.8
     - _Speed: 1
@@ -124,18 +124,18 @@ Material:
     - __Vertex_Waves: 0
     m_Colors:
     - _Direction: {r: -0.14, g: -0.16, b: 0, a: 0}
-    - _MainColor: {r: 0.3018868, g: 0.3018868, b: 0.3018868, a: 0}
+    - _MainColor: {r: 0.04705882, g: 0.35357752, b: 0.6117647, a: 0}
     - _Normal_Tiling2_Offset_Strength: {r: 3, g: 3, b: 0.5, a: 4.54}
     - _Shadow_Color: {r: 0.19607842, g: 0.4951832, b: 0.87058824, a: 0}
     - _Specular_Color: {r: 102.75575, g: 102.75575, b: 102.75575, a: 0}
     - _Specular_Step_Edges_edge1_edge2_scale: {r: 0.617, g: 0.67, b: 1, a: 0}
     - _W1Direction: {r: 1, g: 0, b: 0, a: 0}
     - _W1_Direction: {r: 0.08, g: -0.98, b: 0, a: 0}
-    - _W1_Prop_Sharpness_WaveLength_Speed: {r: 1, g: 0.85, b: 0, a: 0}
+    - _W1_Prop_Sharpness_WaveLength_Speed: {r: 0.537, g: 1, b: 0.618, a: 0}
     - _W2_Direction: {r: 0.45, g: 1.95, b: 0, a: 0}
-    - _W2_Prop_Sharpness_WaveLength_Speed: {r: 0.669, g: 0.174, b: 0, a: 0}
+    - _W2_Prop_Sharpness_WaveLength_Speed: {r: 0.383, g: 0.174, b: 0.417, a: 0}
     - _W3_Direction: {r: -0.9, g: 0.5, b: 0, a: 0}
-    - _W3_Prop_Sharpness_WaveLength_Speed: {r: 0.404, g: 0.508, b: 0, a: 0}
+    - _W3_Prop_Sharpness_WaveLength_Speed: {r: 0.404, g: 0.508, b: 0.245, a: 0}
     - _Wave1Prop_Sharpness_WaveLength_Speed: {r: 0.708, g: 1, b: 0, a: 0}
     - _Wave1Prop_Sharpness_WaveLength_Speed_1: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []

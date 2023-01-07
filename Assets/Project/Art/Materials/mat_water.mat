@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: mat_Tess_Plane
+  m_Name: mat_water
   m_Shader: {fileID: 4800000, guid: 6da379842cb0c4b46bc40d4485ae828d, type: 3}
   m_ValidKeywords:
   - _PARTITIONING_INTEGER
@@ -52,13 +52,13 @@ Material:
     - _Depth_Noise_Strength: 0.0443
     - _FactorInside: 5.37
     - _Foam_Noise_Scale: 79
-    - _Foam_Power: 0.652
-    - _Foam_Step: 1.48
+    - _Foam_Power: 0.727
+    - _Foam_Step: 3.2
     - _Foam_Step_Smooth: 1
     - _Foam_Texture_Scale: 4.2
     - _Foam_Texture_Smooth: 0.432
     - _Foam_Texture_Step: 0
-    - _Normal_Map_Scale: 15
+    - _Normal_Map_Scale: 6.88
     - _Normal_Map_Speed: 0.041
     - _Normal_Map_Strength: 0.77
     - _Object_Foam_Depth: 1.96
@@ -77,10 +77,10 @@ Material:
     - _FactorEdge1: {r: 3, g: 3, b: 3, a: 0}
     - _Main_Color: {r: 0, g: 0.26033336, b: 0.426, a: 1}
     - _VertexOffsetTest: {r: -0.24, g: 0, b: -5.1, a: 0}
-    - _W1_Direction: {r: 0.08, g: -0.98, b: 0, a: 0}
-    - _W1_Prop_Sharpness_WaveLength_Speed: {r: 0.558, g: 1, b: 1, a: 0}
-    - _W2_Direction: {r: 1.52, g: -0.83, b: 0, a: 0}
-    - _W2_Prop_Sharpness_WaveLength_Speed: {r: 0.348, g: 0.39, b: 0.57, a: 0}
-    - _W3_Direction: {r: -1.81, g: -4.1, b: 0, a: 0}
-    - _W3_Prop_Sharpness_WaveLength_Speed: {r: 0.328, g: 0.583, b: 0.757, a: 0}
+    - _W1_Direction: {r: 0.24, g: -6.5, b: 0, a: 0}
+    - _W1_Prop_Sharpness_WaveLength_Speed: {r: 0.57, g: 1, b: 1, a: 0}
+    - _W2_Direction: {r: -2.64, g: 1.95, b: 0, a: 0}
+    - _W2_Prop_Sharpness_WaveLength_Speed: {r: 0.465, g: 0.174, b: 0, a: 0}
+    - _W3_Direction: {r: 0.4, g: 0.43, b: 0, a: 0}
+    - _W3_Prop_Sharpness_WaveLength_Speed: {r: 0.423, g: 0.508, b: 0.558, a: 0}
   m_BuildTextureStacks: []
