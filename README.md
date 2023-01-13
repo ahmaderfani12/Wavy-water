@@ -22,3 +22,5 @@ Shader MakDown https://github.com/needle-tools/shadergraph-markdown
 Initiall Tessletation https://gist.github.com/NedMakesGames/808a04367e60947a7966976f918081b2
 <br/>
 Catlikecoding Flow Tutorial https://catlikecoding.com/unity/tutorials/flow/waves/
+<br/>
+HDR Sky: https://polyhaven.com/a/kloofendal_48d_partly_cloudy_puresky
