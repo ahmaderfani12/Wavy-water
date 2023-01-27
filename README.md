@@ -17,9 +17,9 @@ Control over:
 - Using a Flow map for wave directions
 
 ### Used resources
-Shader MakDown https://github.com/needle-tools/shadergraph-markdown
+Shader MakrDown https://github.com/needle-tools/shadergraph-markdown
 <br/>
-Initiall Tessletation https://gist.github.com/NedMakesGames/808a04367e60947a7966976f918081b2
+Initial Tessletation Setup https://gist.github.com/NedMakesGames/808a04367e60947a7966976f918081b2
 <br/>
 Catlikecoding Flow Tutorial https://catlikecoding.com/unity/tutorials/flow/waves/
 <br/>
